@@ -81,7 +81,7 @@ In this example I will use android as example. Change `android` to `ios` for iOS
 cordova platform add android
 ```
 
-#### Run app
+#### Run app without Android Studio
 ```
 cordova run android
 ```
@@ -91,12 +91,13 @@ If your device is connected to your machine with a cable it should open there.
 
 **NOTE: There is no live/hot reload with the `cordova run` command. Use `yarn serve` instead to test on your device.**
 
-#### Build
+#### Update
 ```
-cordova build android
+cordova platform update android
 ```
 
-#### Build release
+#### if platform update don't work
 ```
-cordova build --release android
+cordova platform rm android
+cordova platform add android
 ```
