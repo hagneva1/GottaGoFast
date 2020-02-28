@@ -1,10 +1,11 @@
 export default {
-    platformStartSpeed: 600,
-    spawnRange: [100, 350],
-    yRange: [0.5, 0.55],
+    platformStartSpeed: 200,
+    minPlatformDistance: 1600,
+    spawnRange: [300, 500],
+    yRange: [0.775, 0.825],
     platformSizeRange: [50, 250],
     playerGravity: 900,
-    jumpForce: 300,
+    jumpForce: 450,
     playerStartPosition: 200,
     jumps: 2
 }

@@ -1,5 +1,5 @@
 import Phaser from 'phaser'
-import config from './config'
+import config from './config/parameters'
 import './styles/index.scss'
 import { show_all as scale_mode } from './config/game_scales'
 
