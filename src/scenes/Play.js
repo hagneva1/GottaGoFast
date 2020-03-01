@@ -44,19 +44,20 @@ export class Play extends Phaser.Scene {
 
     character.animate(this)
 
-    var cursors = this.input.keyboard.createCursorKeys();
+    this.cursors = this.input.keyboard.createCursorKeys();
 
     // setting collisions between the player and the platform group
     this.physics.add.collider(this.player, this.platformGroup);
 
     // checking for input
-    this.input.on("pointerdown", this.jumpListener, this);
+    //this.input.on("pointerdown", this.jumpListener, this);
 
   }
 
   update() {
+    character.jump(this);
 
-    if (this.player.body.touching.down) {
+    if (this.player.body.touching.down && character.jumpTimer == 0) {
       character.resetJump();
     }
     this.bg.tilePositionX += 5;
