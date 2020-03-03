@@ -1,5 +1,5 @@
 export default {
-    platformStartSpeed: 200,
+    platformStartSpeed: 500,
     minPlatformDistance: 1600,
     spawnRange: [300, 500],
     yRange: [0.775, 0.825],
