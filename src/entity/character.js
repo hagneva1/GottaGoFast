@@ -27,7 +27,7 @@ export default {
 
     // the player jumps when on the ground, or once in the air as long as there are jumps left and the first jump was on the ground
     jump (game) {
-        if (game.input.activePointer.isDown && this.playerJumps < gameOptions.jumps && this.jumpTimer == 0)
+        if (game.input.activePointer.isDown && game.input.activePointer.x <= config.width / 2 && this.playerJumps < gameOptions.jumps && this.jumpTimer == 0)
         {   //player is on the ground, so he is allowed to start a jump
             this.jumpTimer = 1;
             game.player.body.velocity.y = -250;
