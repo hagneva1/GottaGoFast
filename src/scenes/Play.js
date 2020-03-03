@@ -64,7 +64,7 @@ export class Play extends Phaser.Scene {
         this.paused = true;
         
         this.scene.pause()
-        this.scene.launch('Menu');
+        this.scene.switch('Menu');
        
     }, this);
 
