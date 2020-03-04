@@ -65,6 +65,8 @@ export class Play extends Phaser.Scene {
     // checking for input
     //this.input.on("pointerdown", this.jumpListener, this);
 
+    this.physics.add.sprite()
+
     this.pause_label = this.add.text(800 - 100, 20, 'Pause', { font: '24px Arial', fill: '#fff' });
     this.pause_label.inputEnabled = true;
     var cursors = this.input.keyboard.createCursorKeys();
