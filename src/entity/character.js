@@ -77,9 +77,20 @@ export default {
         this.ball.setGravityY(gameOptions.playerGravity)
         this.ball.setBounce(0.7)
         game.physics.add.collider(this.ball, game.platformGroup);
+        game.physics.add.collider(this.ball, game.enemiesGroup, function () {
+            this.kill(game)
+        }, null, this);
     },
 
     resetJump() {
         this.playerJumps = 0;
+    },
+
+    kill(game) {
+        game.enemiesGroup.getChildren().forEach(function (enemies) {
+            if (enemies.body.touching) {
+                enemies.destroy();
+            }
+        }, this);
     }
 }
