@@ -1,8 +1,9 @@
 import gameOptions from "../config/options";
 import config from "../config/parameters";
 
-export default {
+var isMusicOn = true;
 
+export default {
 
 create(game){
 
@@ -14,10 +15,16 @@ create(game){
 
 musicOn(game){
 	this.music.resume();
+	isMusicOn = true;
 },
 
 musicOff(game){
 	this.music.pause();
+	isMusicOn = false;
+},
+
+getStatusMusic(game){
+	return isMusicOn;
 }
 
 }

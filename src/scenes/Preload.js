@@ -8,6 +8,8 @@ import ball from '../assets/ball.png'
 import enemies from "../assets/grolem.png";
 import start from "../assets/start.png";
 import logoTitle from "../assets/logoTitle.png";
+import soundOn from "../assets/soundOn.png";
+import soundOff from "../assets/soundOff.png";
 import theme from "../entity/audio"
 
 
@@ -26,6 +28,8 @@ export class Preload extends Phaser.Scene {
     this.load.image('resume', resume);
     this.load.image('ball', ball);
     this.load.image('logoTitle', logoTitle);
+    this.load.image('soundOff', soundOff);
+    this.load.image('soundOn', soundOn);
     this.load.spritesheet('enemies', enemies, {frameWidth: 267, frameHeight: 249});
 
     this.load.audio('theme', [
