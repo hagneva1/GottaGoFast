@@ -3,7 +3,7 @@ import config from "../config/parameters";
 
 export default {
     create(game){
-        game.player = game.physics.add.sprite(gameOptions.playerStartPosition, config.height / 4, "dude");
+        game.player = game.physics.add.sprite(gameOptions.playerStartPosition, config.height / 1.65, "dude");
         game.player.setGravityY(gameOptions.playerGravity);
         game.player.setVelocityX(gameOptions.platformStartSpeed)
         game.player.setScale(3);

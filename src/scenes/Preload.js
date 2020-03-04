@@ -8,6 +8,7 @@ import pause from '../assets/pause.png'
 import resume from '../assets/resume.png'
 import ball from '../assets/ball.png'
 import enemies from "../assets/grolem.png";
+import start from "../assets/start.png";
 
 
 export class Preload extends Phaser.Scene {
@@ -17,6 +18,7 @@ export class Preload extends Phaser.Scene {
 
   preload() {
     this.load.image('sky', background);
+    this.load.image('start', start)
     this.load.image('ground', platform);
     this.load.image('star', star);
     this.load.image('bomb', bomb);
@@ -29,6 +31,6 @@ export class Preload extends Phaser.Scene {
   }
 
   create () {
-    this.scene.start('Play')
+    this.scene.start('TitleScreen');
   }
 }
