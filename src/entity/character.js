@@ -5,6 +5,7 @@ export default {
     create(game){
         game.player = game.physics.add.sprite(gameOptions.playerStartPosition, config.height / 4, "dude");
         game.player.setGravityY(gameOptions.playerGravity);
+        game.player.setVelocityX(gameOptions.platformStartSpeed)
         this.jumpTimer = 0;
         this.playerJumps = 0;
     },
@@ -69,6 +70,6 @@ export default {
     },
 
     resetJump() {
-      this.playerJumps = 0;
+        this.playerJumps = 0;
     }
 }

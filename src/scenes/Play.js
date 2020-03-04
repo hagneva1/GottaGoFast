@@ -95,7 +95,12 @@ export class Play extends Phaser.Scene {
 
     */
 
+    if (!this.player.body.touching.down) {
+      this.player.setVelocityX(0)
+    }
+
     if (this.player.body.touching.down && character.jumpTimer == 0) {
+      this.player.setVelocityX(gameOptions.platformStartSpeed);
       character.resetJump();
     }
     this.bg.tilePositionX += 5;
@@ -108,7 +113,6 @@ export class Play extends Phaser.Scene {
     if (this.player.y > config.height) {
       this.scene.start("Play");
     }
-    this.player.x = gameOptions.playerStartPosition;
 
     // recycling platform
     let platformDistance = myPlatform.recycle(this.platformGroup);
