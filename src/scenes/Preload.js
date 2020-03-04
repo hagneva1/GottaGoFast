@@ -27,6 +27,6 @@ export class Preload extends Phaser.Scene {
   }
 
   create () {
-    this.scene.start('Play')
+    this.scene.start('TitleScreen');
   }
 }

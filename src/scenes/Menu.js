@@ -11,13 +11,12 @@ export class Menu extends Phaser.Scene {
   create () {
     this.scene.moveUp();  	
 
-
-  	this.resumeButton = this.pauseImg = this.physics.add.sprite(config.width/1.2, config.height/10, 'resume');
+  	this.resumeButton = this.physics.add.sprite(config.width/1.2, config.height/10, 'resume');
     this.resumeButton.setInteractive();
 
     this.resumeButton.on('pointerdown', function() {
     	this.scene.stop();
       this.scene.resume('Play');
-	}, this)
+	}, this);
   }
 }
