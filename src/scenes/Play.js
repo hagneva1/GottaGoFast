@@ -19,6 +19,7 @@ export class Play extends Phaser.Scene {
     this.dashButton = this.physics.add.sprite(config.width - config.width / 5, config.height - config.height / 8, 'button');
     this.dashButton.setScale(0.05);
     this.dashButton.setAlpha(0.5);
+    this.dashButton.setInteractive();
 
     this.attackButton = this.physics.add.sprite(this.dashButton.x + this.dashButton.displayWidth * 1.5, this.dashButton.y - this.dashButton.displayHeight * 0.5, 'button');
     this.attackButton.setScale(0.05);
@@ -80,6 +81,8 @@ export class Play extends Phaser.Scene {
 
   update() {
     character.jump(this);
+
+    character.dash(this);
 
     /*pause
     if(bouton pause)
