@@ -32,12 +32,12 @@ export default {
         if (game.input.activePointer.isDown && game.input.activePointer.x <= config.width / 2 && this.playerJumps < gameOptions.jumps && this.jumpTimer == 0)
         {   //player is on the ground, so he is allowed to start a jump
             this.jumpTimer = 1;
-            game.player.body.velocity.y = -250;
+            game.player.body.velocity.y = gameOptions.jumpForce * -1;
             this.playerJumps++
             console.log(this.playerJumps)
         } else if (game.input.activePointer.isDown && this.jumpTimer != 0 && this.jumpTimer < 30)
         { //player is no longer on the ground, but is still holding the jump key and player is allowed to jump higher, not yet 600 milliseconds of jumping
-            game.player.body.velocity.y = -250;
+            game.player.body.velocity.y = gameOptions.jumpForce * -1;
             this.jumpTimer++
         } else if (this.jumpTimer != 0 && !game.input.activePointer.isDown) { //reset jumptimer since the player is no longer holding the jump key
             this.jumpTimer = 0;
