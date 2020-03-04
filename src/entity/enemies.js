@@ -8,6 +8,10 @@ export default {
         game.enemies.setGravityY(gameOptions.playerGravity);
         game.physics.add.collider(game.enemies, game.platformGroup);
         game.enemiesGroup.add(game.enemies);
+
+        game.physics.add.collider(game.player, game.enemies, function () {
+            this.kill(game)
+        }, null, this);
     },
 
     animate(game){
@@ -27,5 +31,9 @@ export default {
                 enemies.destroy();
             }
         }, this);
+    },
+
+    kill(game) {
+        game.scene.start("Play");
     }
 }
