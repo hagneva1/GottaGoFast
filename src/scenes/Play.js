@@ -72,14 +72,10 @@ export class Play extends Phaser.Scene {
     // setting collisions between the player and the platform group
     this.physics.add.collider(this.player, this.platformGroup);
 
-    // checking for input
-    //this.input.on("pointerdown", this.jumpListener, this);
-
     this.pauseImg = this.physics.add.sprite(config.width/1.2, config.height/10, 'pause');
 
     this.pauseImg.setInteractive();
 
-    var w = 800, h = 600;
     this.pauseImg.on("pointerdown", function () {
 
       this.scene.pause();
@@ -97,12 +93,6 @@ export class Play extends Phaser.Scene {
     character.jump(this);
 
     character.checkDash(this);
-
-    /*pause
-    if(bouton pause)
-        this.scene.launch('sceneB')
-        this.scene.pause();
-    */
 
     if (!this.player.body.touching.down) {
       this.player.setVelocityX(0)

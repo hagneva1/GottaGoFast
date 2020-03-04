@@ -12,7 +12,7 @@ export default {
             platform.x = posX;
             platform.active = true;
             platform.visible = true;
-            if ( Phaser.Math.RND.realInRange(0, 1) > 0.9) {
+            if ( Phaser.Math.RND.realInRange(0, 1) > 1 - gameOptions.probaPopEnemie) {
                 enemies.create(game, platform.x, platform.y - platform.displayHeight * 1.3);
                 enemies.animate(game)
             }
