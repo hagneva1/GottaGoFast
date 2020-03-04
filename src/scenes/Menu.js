@@ -11,7 +11,8 @@ export class Menu extends Phaser.Scene {
   create () {
     this.scene.moveUp();  	
 
-  	this.resumeButton = this.add.text(config.width/2, config.height/2, 'Hello Phaser!', { fill: '#0f0' });
+
+  	this.resumeButton = this.pauseImg = this.physics.add.sprite(config.width/1.2, config.height/10, 'resume');
     this.resumeButton.setInteractive();
 
     this.resumeButton.on('pointerdown', function() {
