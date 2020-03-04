@@ -23,6 +23,7 @@ export class Play extends Phaser.Scene {
     this.dashButton.setScale(0.08);
     this.dashButton.setAlpha(0.5);
     this.dashButton.setInteractive();
+    this.dashButton.depth = 100
 
     this.dashButton.on('pointerdown', function () {
       character.initDash(this);
@@ -32,6 +33,7 @@ export class Play extends Phaser.Scene {
     this.attackButton.setScale(0.08);
     this.attackButton.setAlpha(0.5)
     this.attackButton.setInteractive()
+    this.attackButton.depth = 100
     this.attackButton.on('pointerdown', function () {
       character.elecBall(this);
     }, this);
