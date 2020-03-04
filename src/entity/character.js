@@ -6,6 +6,7 @@ export default {
         game.player = game.physics.add.sprite(gameOptions.playerStartPosition, config.height / 1.65, "dude");
         game.player.setGravityY(gameOptions.playerGravity);
         game.player.setVelocityX(gameOptions.platformStartSpeed)
+        game.player.setScale(3);
         this.jumpTimer = 0;
         this.playerJumps = 0;
     },
@@ -73,7 +74,7 @@ export default {
         console.log("attaque eclair")
         this.ball = game.physics.add.sprite(game.player.x + game.player.displayWidth / 2, game.player.y - game.player.displayWidth / 2, 'ball')
         this.ball.setVelocity(gameOptions.platformStartSpeed * 1)
-        this.ball.setScale(0.1)
+        this.ball.setScale(0.3)
         this.ball.setGravityY(gameOptions.playerGravity)
         this.ball.setBounce(0.7)
         game.physics.add.collider(this.ball, game.platformGroup);
