@@ -2,6 +2,7 @@ import config from "../config/parameters"
 import gameOptions from "../config/options"
 import myPlatform from "../entity/platform"
 import character from "../entity/character"
+import score from "../entity/score";
 
 var nextPlatformDistance;
 
@@ -80,11 +81,15 @@ export class Play extends Phaser.Scene {
 
     var w = 800, h = 600;
     this.pauseImg.on("pointerdown", function () {
-                
-        this.scene.pause();
-        this.scene.launch('Menu');
-       
+
+      this.scene.pause();
+      this.scene.launch('Menu');
+
     }, this);
+
+    //Display score
+    score.create(this);
+    this.time.addEvent({ delay: 500, callback: function() {score.timeScore(this)}, callbackScope: this, repeat: -1});
 
   }
 
@@ -97,7 +102,6 @@ export class Play extends Phaser.Scene {
     if(bouton pause)
         this.scene.launch('sceneB')
         this.scene.pause();
-
     */
 
     if (!this.player.body.touching.down) {
