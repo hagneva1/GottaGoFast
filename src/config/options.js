@@ -6,5 +6,6 @@ export default {
     playerGravity: 900,
     jumpForce: 250,
     playerStartPosition: 200,
-    jumps: 2
+    jumps: 2,
+    probaPopEnemie: 0.2
 }
