@@ -26,6 +26,12 @@ export class Preload extends Phaser.Scene {
     this.load.image('ball', ball);
     this.load.image('logoTitle', logoTitle);
     this.load.spritesheet('enemies', enemies, {frameWidth: 267, frameHeight: 249});
+
+    this.load.audio('theme', [
+        '../assets/music/theme.ogg',
+        '../assets/music/theme.mp3'
+    ]);
+
   }
 
   create () {

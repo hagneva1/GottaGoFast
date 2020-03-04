@@ -17,6 +17,8 @@ export class Play extends Phaser.Scene {
     // Add background
     this.bg = this.add.tileSprite(0, 0, config.width, config.height, 'sky').setOrigin(0);
 
+   
+
     this.dashButton = this.physics.add.sprite(config.width - config.width / 5, config.height - config.height / 8, 'button');
     this.dashButton.setScale(0.08);
     this.dashButton.setAlpha(0.5);
