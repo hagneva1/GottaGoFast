@@ -28,6 +28,10 @@ export class Play extends Phaser.Scene {
     this.attackButton = this.physics.add.sprite(this.dashButton.x + this.dashButton.displayWidth * 1.5, this.dashButton.y - this.dashButton.displayHeight * 0.5, 'button');
     this.attackButton.setScale(0.08);
     this.attackButton.setAlpha(0.5)
+    this.attackButton.setInteractive()
+    this.attackButton.on('pointerdown', function () {
+      character.elecBall(this);
+    }, this);
 
     this.platformGroup = this.add.group({
 
@@ -97,7 +101,12 @@ export class Play extends Phaser.Scene {
 
     */
 
+    if (!this.player.body.touching.down) {
+      this.player.setVelocityX(0)
+    }
+
     if (this.player.body.touching.down && character.jumpTimer == 0) {
+      this.player.setVelocityX(gameOptions.platformStartSpeed);
       character.resetJump();
     }
     this.bg.tilePositionX += 5;
@@ -110,7 +119,6 @@ export class Play extends Phaser.Scene {
     if (this.player.y > config.height) {
       this.scene.start("Play");
     }
-    this.player.x = gameOptions.playerStartPosition;
 
     // recycling platform
     let platformDistance = myPlatform.recycle(this.platformGroup);

@@ -6,6 +6,8 @@ import pikachu from '../assets/pikachu.png'
 import button from '../assets/buttons.png'
 import pause from '../assets/pause.png'
 import resume from '../assets/resume.png'
+import ball from '../assets/ball.png'
+
 
 export class Preload extends Phaser.Scene {
   constructor () {
@@ -21,6 +23,7 @@ export class Preload extends Phaser.Scene {
     this.load.image('button', button);
     this.load.image('pause', pause);
     this.load.image('resume', resume);
+    this.load.image('ball', ball);
   }
 
   create () {
