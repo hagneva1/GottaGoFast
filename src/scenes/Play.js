@@ -103,7 +103,6 @@ export class Play extends Phaser.Scene {
       this.platformGroup.getChildren().forEach(function (platform) {
           this.velo = platform.body.velocity
       }, this)
-      console.log(this.velo)
       this.player.setVelocityX(this.velo.x * -1);
       character.resetJump();
     }
