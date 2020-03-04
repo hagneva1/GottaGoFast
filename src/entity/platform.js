@@ -13,7 +13,7 @@ export default {
             platform.active = true;
             platform.visible = true;
             if ( Phaser.Math.RND.realInRange(0, 1) > 0.9) {
-                enemies.create(game, platform.x, platform.y - platform.displayHeight * 1.2);
+                enemies.create(game, platform.x, platform.y - platform.displayHeight * 1.3);
                 enemies.animate(game)
             }
             pool.remove(platform);
@@ -23,6 +23,7 @@ export default {
             platform.setVelocityX(gameOptions.platformStartSpeed * -1);
             group.add(platform);
         }
+        platform.setScale(3);
         platform.displayWidth = width;
         return Phaser.Math.Between(gameOptions.spawnRange[0], gameOptions.spawnRange[1]);
     },

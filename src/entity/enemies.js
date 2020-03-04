@@ -4,7 +4,7 @@ import config from "../config/parameters";
 export default {
     create(game, posX, posY){
         game.enemies = game.physics.add.sprite(posX,  posY, "enemies");
-        game.enemies.setScale(0.2);
+        game.enemies.setScale(0.6);
         game.enemies.setGravityY(gameOptions.playerGravity);
         game.physics.add.collider(game.enemies, game.platformGroup);
         game.enemiesGroup.add(game.enemies);
