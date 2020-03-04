@@ -17,12 +17,16 @@ export class Play extends Phaser.Scene {
     this.bg = this.add.tileSprite(0, 0, config.width, config.height, 'sky').setOrigin(0);
 
     this.dashButton = this.physics.add.sprite(config.width - config.width / 5, config.height - config.height / 8, 'button');
-    this.dashButton.setScale(0.05);
+    this.dashButton.setScale(0.08);
     this.dashButton.setAlpha(0.5);
     this.dashButton.setInteractive();
 
+    this.dashButton.on('pointerdown', function () {
+      character.initDash(this);
+    }, this);
+
     this.attackButton = this.physics.add.sprite(this.dashButton.x + this.dashButton.displayWidth * 1.5, this.dashButton.y - this.dashButton.displayHeight * 0.5, 'button');
-    this.attackButton.setScale(0.05);
+    this.attackButton.setScale(0.08);
     this.attackButton.setAlpha(0.5)
 
     this.platformGroup = this.add.group({
@@ -82,7 +86,7 @@ export class Play extends Phaser.Scene {
   update() {
     character.jump(this);
 
-    character.dash(this);
+    character.checkDash(this);
 
     /*pause
     if(bouton pause)
@@ -114,9 +118,5 @@ export class Play extends Phaser.Scene {
       let nextPlatformWidth = Phaser.Math.Between(gameOptions.platformSizeRange[0], gameOptions.platformSizeRange[1]);
       nextPlatformDistance = myPlatform.addPlatform(this, config.width + nextPlatformWidth / 2, nextPlatformWidth, this.platformPool, this.platformGroup);
     }
-  }
-
-  jumpListener() {
-    character.jump(this.player)
   }
 }

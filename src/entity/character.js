@@ -42,21 +42,29 @@ export default {
         }
     },
 
-    dash(game) {
-        game.dashButton.on('pointerdown', function () {
-            game.platformGroup.getChildren().forEach(function (platform) {
-                platform.setVelocityX(gameOptions.platformStartSpeed * -1.5);
-                this.dashTimer = 1;
-            }, this)
-        })
+    initDash(game) {
+        console.log('dash')
+        game.platformGroup.getChildren().forEach(function (platform) {
+            platform.setVelocityX(gameOptions.platformStartSpeed * -1.5);
+        }, this)
+        game.platformPool.getChildren().forEach(function (platform) {
+            platform.setVelocityX(gameOptions.platformStartSpeed * -1.5);
+        }, this)
+        this.dashTimer = 1;
+    },
+
+    checkDash(game) {
         if(this.dashTimer > 0) {
             this.dashTimer++
         }
         if(this.dashTimer >= 10) {
             game.platformGroup.getChildren().forEach(function (platform) {
                 platform.setVelocityX(gameOptions.platformStartSpeed * -1);
-                this.dashTimer = 0;
             }, this)
+            game.platformPool.getChildren().forEach(function (platform) {
+                platform.setVelocityX(gameOptions.platformStartSpeed * -1);
+            }, this)
+            this.dashTimer = 0;
         }
     },
 
