@@ -1,4 +1,4 @@
-import background from '../assets/background.png'
+import background from '../assets/background.jpg'
 import platform from '../assets/platform.png'
 import pikachu from '../assets/pikachu.png'
 import button from '../assets/buttons.png'
