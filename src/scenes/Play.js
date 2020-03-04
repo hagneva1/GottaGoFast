@@ -28,6 +28,10 @@ export class Play extends Phaser.Scene {
     this.attackButton = this.physics.add.sprite(this.dashButton.x + this.dashButton.displayWidth * 1.5, this.dashButton.y - this.dashButton.displayHeight * 0.5, 'button');
     this.attackButton.setScale(0.08);
     this.attackButton.setAlpha(0.5)
+    this.attackButton.setInteractive()
+    this.attackButton.on('pointerdown', function () {
+      character.elecBall(this);
+    }, this);
 
     this.platformGroup = this.add.group({
 

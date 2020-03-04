@@ -4,6 +4,7 @@ import star from '../assets/star.png'
 import bomb from '../assets/bomb.png'
 import pikachu from '../assets/pikachu.png'
 import button from '../assets/buttons.png'
+import ball from '../assets/ball.png'
 
 export class Preload extends Phaser.Scene {
   constructor () {
@@ -17,6 +18,7 @@ export class Preload extends Phaser.Scene {
     this.load.image('bomb', bomb);
     this.load.spritesheet('dude', pikachu, {frameWidth: 67, frameHeight: 48});
     this.load.image('button', button);
+    this.load.image('ball', ball);
   }
 
   create () {
