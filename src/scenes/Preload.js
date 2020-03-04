@@ -8,6 +8,7 @@ import ball from '../assets/ball.png'
 import enemies from "../assets/grolem.png";
 import start from "../assets/start.png";
 import logoTitle from "../assets/logoTitle.png";
+import theme from "../entity/audio"
 
 
 export class Preload extends Phaser.Scene {
