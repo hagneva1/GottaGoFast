@@ -12,9 +12,9 @@ create () {
 
 	// Add background
     this.bg = this.add.tileSprite(0, 0, config.width, config.height, 'sky').setOrigin(0);
-    
 
-    this.resumeButton = this.physics.add.sprite(config.width/1.2, config.height/10, 'resume');
+
+    this.resumeButton = this.physics.add.sprite(config.width/2, config.height/1.5, 'start');
     this.resumeButton.setInteractive();
 
 	this.resumeButton.on('pointerdown', function() {
