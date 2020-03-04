@@ -61,19 +61,19 @@ export class Play extends Phaser.Scene {
     // checking for input
     //this.input.on("pointerdown", this.jumpListener, this);
 
-    var pause_label = this.add.text(800 - 100, 20, 'Pause', { font: '24px Arial', fill: '#fff' });
-    pause_label.inputEnabled = true;
+    this.pause_label = this.add.text(800 - 100, 20, 'Pause', { font: '24px Arial', fill: '#fff' });
+    this.pause_label.inputEnabled = true;
     var cursors = this.input.keyboard.createCursorKeys();
-    pause_label.setInteractive();
+    this.pause_label.setInteractive();
 
     var w = 800, h = 600;
-    this.input.on("gameobjectdown", function () {
+    this.pause_label.on("pointerdown", function () {
         
         // When the paus button is pressed, we pause the game
         this.paused = true;
         
-        this.scene.pause()
-        this.scene.switch('Menu');
+        this.scene.pause();
+        this.scene.launch('Menu');
        
     }, this);
 

@@ -9,14 +9,14 @@ export class Menu extends Phaser.Scene {
   }
 
   create () {
-  	console.log("test");
+    this.scene.moveUp();  	
 
-  	const resumeButton = this.add.text(config.width/2, config.height/2, 'Hello Phaser!', { fill: '#0f0' });
-    resumeButton.setInteractive();
+  	this.resumeButton = this.add.text(config.width/2, config.height/2, 'Hello Phaser!', { fill: '#0f0' });
+    this.resumeButton.setInteractive();
 
-    this.input.on('pointerdown', function() {
-    	this.scene.switch('Play');
+    this.resumeButton.on('pointerdown', function() {
     	this.scene.stop();
+      this.scene.resume('Play');
 	}, this)
   }
 }
