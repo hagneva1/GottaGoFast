@@ -101,7 +101,11 @@ export class Play extends Phaser.Scene {
     }
 
     if (this.player.body.touching.down && character.jumpTimer == 0) {
-      this.player.setVelocityX(gameOptions.platformStartSpeed);
+      this.platformGroup.getChildren().forEach(function (platform) {
+          this.velo = platform.body.velocity
+      }, this)
+      console.log(this.velo)
+      this.player.setVelocityX(this.velo.x * -1);
       character.resetJump();
     }
     this.bg.tilePositionX += 5;
