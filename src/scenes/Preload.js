@@ -9,6 +9,7 @@ import resume from '../assets/resume.png'
 import ball from '../assets/ball.png'
 import enemies from "../assets/grolem.png";
 import start from "../assets/start.png";
+import logoTitle from "../assets/logoTitle.png";
 
 
 export class Preload extends Phaser.Scene {
@@ -27,6 +28,7 @@ export class Preload extends Phaser.Scene {
     this.load.image('pause', pause);
     this.load.image('resume', resume);
     this.load.image('ball', ball);
+    this.load.image('logoTitle', logoTitle);
     this.load.spritesheet('enemies', enemies, {frameWidth: 267, frameHeight: 249});
   }
 
