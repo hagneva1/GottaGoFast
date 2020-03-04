@@ -2,7 +2,7 @@ import config from "../config/parameters"
 import gameOptions from "../config/options"
 import myPlatform from "../entity/platform"
 import character from "../entity/character"
-import score from "../entity/score"
+import score from "../entity/score";
 
 var nextPlatformDistance;
 
@@ -29,6 +29,10 @@ export class Play extends Phaser.Scene {
     this.attackButton = this.physics.add.sprite(this.dashButton.x + this.dashButton.displayWidth * 1.5, this.dashButton.y - this.dashButton.displayHeight * 0.5, 'button');
     this.attackButton.setScale(0.08);
     this.attackButton.setAlpha(0.5)
+    this.attackButton.setInteractive()
+    this.attackButton.on('pointerdown', function () {
+      character.elecBall(this);
+    }, this);
 
     this.platformGroup = this.add.group({
 
@@ -45,6 +49,9 @@ export class Play extends Phaser.Scene {
       removeCallback: function(platform){
         platform.scene.platformGroup.add(platform)
       }
+    });
+
+    this.enemiesGroup = this.add.group({
     });
 
     // number of consecutive jumps made by the player
@@ -66,30 +73,25 @@ export class Play extends Phaser.Scene {
     // checking for input
     //this.input.on("pointerdown", this.jumpListener, this);
 
-    this.pause_label = this.add.text(800 - 100, 20, 'Pause', { font: '24px Arial', fill: '#fff' });
-    this.pause_label.inputEnabled = true;
-    var cursors = this.input.keyboard.createCursorKeys();
-    this.pause_label.setInteractive();
+    this.pauseImg = this.physics.add.sprite(config.width/1.2, config.height/10, 'pause');
+
+    this.pauseImg.setInteractive();
 
     var w = 800, h = 600;
-    this.pause_label.on("pointerdown", function () {
-        
-        // When the paus button is pressed, we pause the game
-        this.paused = true;
-        
-        this.scene.pause();
-        this.scene.launch('Menu');
-       
+    this.pauseImg.on("pointerdown", function () {
+
+      this.scene.pause();
+      this.scene.launch('Menu');
+
     }, this);
 
     //Display score
     score.create(this);
     this.time.addEvent({ delay: 500, callback: function() {score.timeScore(this)}, callbackScope: this, repeat: -1});
+
   }
 
-
   update() {
-    
     character.jump(this);
 
     character.checkDash(this);
@@ -98,10 +100,14 @@ export class Play extends Phaser.Scene {
     if(bouton pause)
         this.scene.launch('sceneB')
         this.scene.pause();
-
     */
 
+    if (!this.player.body.touching.down) {
+      this.player.setVelocityX(0)
+    }
+
     if (this.player.body.touching.down && character.jumpTimer == 0) {
+      this.player.setVelocityX(gameOptions.platformStartSpeed);
       character.resetJump();
     }
     this.bg.tilePositionX += 5;
@@ -114,7 +120,6 @@ export class Play extends Phaser.Scene {
     if (this.player.y > config.height) {
       this.scene.start("Play");
     }
-    this.player.x = gameOptions.playerStartPosition;
 
     // recycling platform
     let platformDistance = myPlatform.recycle(this.platformGroup);
