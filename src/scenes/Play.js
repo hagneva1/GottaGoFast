@@ -50,6 +50,9 @@ export class Play extends Phaser.Scene {
       }
     });
 
+    this.enemiesGroup = this.add.group({
+    });
+
     // number of consecutive jumps made by the player
     this.playerJumps = 0;
 
