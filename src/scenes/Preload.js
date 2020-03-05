@@ -1,4 +1,4 @@
-import background from '../assets/background.jpg'
+import background from '../assets/background.png'
 import platform from '../assets/newPlatform.png'
 import pikachu from '../assets/pikachu.png'
 import button from '../assets/buttons.png'
@@ -11,6 +11,8 @@ import logoTitle from "../assets/logoTitle.png";
 import soundOn from "../assets/soundOn.png";
 import soundOff from "../assets/soundOff.png";
 import theme from "../entity/audio"
+import creditsButton from "../assets/creditsButton.png";
+import backButton from "../assets/backButton.png";
 
 
 export class Preload extends Phaser.Scene {
@@ -30,6 +32,8 @@ export class Preload extends Phaser.Scene {
     this.load.image('logoTitle', logoTitle);
     this.load.image('soundOff', soundOff);
     this.load.image('soundOn', soundOn);
+    this.load.image('creditsButton', creditsButton);
+    this.load.image('backButton',backButton);
     this.load.spritesheet('enemies', enemies, {frameWidth: 267, frameHeight: 249});
 
     this.load.audio('theme', [

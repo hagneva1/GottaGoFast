@@ -25,6 +25,14 @@ create () {
 		this.scene.start('Play');
 	}, this); 
 
+	this.creditsButton = this.physics.add.sprite(config.width/2, config.height/1.155, 'creditsButton');
+    this.creditsButton.setInteractive();
+
+	this.creditsButton.on('pointerdown', function() {
+		this.scene.stop();
+		this.scene.start('Credits');
+	}, this); 
+
 
 }
 
