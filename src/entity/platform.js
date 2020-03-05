@@ -23,6 +23,7 @@ export default {
             platform.setVelocityX(gameOptions.platformStartSpeed * -1);
             group.add(platform);
         }
+       // platform.setSize(platform.body.width, platform.body.height * 0.8);
         platform.setScale(3);
         platform.displayWidth = width;
         return Phaser.Math.Between(gameOptions.spawnRange[0], gameOptions.spawnRange[1]);

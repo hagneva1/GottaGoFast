@@ -1,5 +1,5 @@
 import background from '../assets/background.png'
-import platform from '../assets/newPlatform.png'
+import platform from '../assets/grass2.png'
 import pikachu from '../assets/pikachu.png'
 import button from '../assets/buttons.png'
 import pause from '../assets/pause.png'
