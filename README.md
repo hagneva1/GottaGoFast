@@ -86,6 +86,11 @@ cordova platform add android
 cordova run android
 ```
 
+You can find the build apk in the following path :
+```
+platforms/android/app/build/outputs/apk/debug/app-debug.apk
+```
+
 This command will run an emalator on your machine if you have installed Android studio (Android) or XCode (iOS).
 If your device is connected to your machine with a cable it should open there.
 
