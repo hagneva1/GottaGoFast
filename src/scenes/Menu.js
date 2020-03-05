@@ -13,6 +13,7 @@ export class Menu extends Phaser.Scene {
     this.scene.moveUp();  	
 
     // button resume
+
   	this.resumeButton = this.physics.add.sprite(config.width/1.2, config.height/10, 'resume');
     this.resumeButton.setInteractive();
 
@@ -24,23 +25,23 @@ export class Menu extends Phaser.Scene {
 
     // Sound
 
-	if(theme.getStatusMusic(this)){
-    	this.soundOff = this.physics.add.sprite(config.width/1.2, config.height/4, 'soundOff');
-    	this.soundOff.setInteractive();
+		if(theme.getStatusMusic(this))
+    		this.sound = this.physics.add.sprite(config.width/1.2, config.height/4, 'soundOff');
+    	else
+    		this.sound = this.physics.add.sprite(config.width/1.2, config.height/4, 'soundOn');
+    	this.sound.setInteractive();
 
-		this.soundOff.on('pointerdown', function() {
-      		theme.musicOff(this);
+		this.sound.on('pointerdown', function() {
+      		if(theme.getStatusMusic(this)){
+      			theme.musicOff(this);
+      			this.sound = this.physics.add.sprite(config.width/1.2, config.height/4, 'soundOn');
+
+      		}else{
+      			theme.musicOn(this);
+      			this.sound = this.physics.add.sprite(config.width/1.2, config.height/4, 'soundOff');
+      		}
+
   		}, this);
-    }else{
-    	this.soundOn = this.physics.add.sprite(config.width/1.2, config.height/4, 'soundOn');
-    	this.soundOn.setInteractive();
-
-		this.soundOff.on('pointerdown', function() {
-      		theme.musicOn(this);
-  		}, this);
-
-    }
-
-
+    
   }
 }
