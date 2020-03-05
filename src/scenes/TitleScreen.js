@@ -18,9 +18,11 @@ create () {
 
     this.resumeButton = this.physics.add.sprite(config.width/2, config.height/1.5, 'start');
     this.resumeButton.setInteractive();
+    
     theme.create(this);
 
 	this.resumeButton.on('pointerdown', function() {
+		theme.musicOff();
 		this.scene.stop();
 		this.scene.start('Play');
 	}, this); 
@@ -29,6 +31,7 @@ create () {
     this.creditsButton.setInteractive();
 
 	this.creditsButton.on('pointerdown', function() {
+		theme.musicOff();
 		this.scene.stop();
 		this.scene.start('Credits');
 	}, this); 
