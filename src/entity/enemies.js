@@ -35,6 +35,6 @@ export default {
     },
 
     kill(game) {
-        game.scene.start("Play");
+        game.gameover = true;
     }
 }

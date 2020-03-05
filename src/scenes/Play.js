@@ -14,6 +14,7 @@ export class Play extends Phaser.Scene {
   }
 
   create() {
+    this.gameover = false;
 
     // Add background
     this.bg = this.add.tileSprite(0, 0, config.width, config.height, 'sky').setOrigin(0);
@@ -114,7 +115,7 @@ export class Play extends Phaser.Scene {
     }
     // game over
     if (this.player.y > config.height) {
-      this.scene.start("Play");
+      this.gameover = true;
     }
 
     // recycling platform
@@ -124,6 +125,11 @@ export class Play extends Phaser.Scene {
     if(platformDistance > nextPlatformDistance){
       let nextPlatformWidth = Phaser.Math.Between(gameOptions.platformSizeRange[0], gameOptions.platformSizeRange[1]);
       nextPlatformDistance = myPlatform.addPlatform(this, config.width + nextPlatformWidth / 2, nextPlatformWidth, this.platformPool, this.platformGroup);
+    }
+    //GameOver
+    if (this.gameover == true) {
+      localStorage.setItem("bestScore", score.score);
+      this.scene.start('TitleScreen');
     }
   }
 }
