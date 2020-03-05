@@ -16,13 +16,13 @@ create () {
 
     this.logoTitle = this.physics.add.sprite(config.width/2, config.height/3.5, 'logoTitle');
 
-    this.add.text(config.width/2.5, config.height/2, 'Credits : ', { fontSize: '40px', fill: '#000' });
+    this.add.text(config.width/2.3, config.height/2, 'Credits : ', { fontSize: '40px', fill: '#000' });
 
-    this.add.text(config.width/3, config.height/1.8, 'Cloé', { fontSize: '40px', fill: '#000' });
-    this.add.text(config.width/3, config.height/1.6, 'Baptiste', { fontSize: '40px', fill: '#000' });
-    this.add.text(config.width/3, config.height/1.4, 'Valentin', { fontSize: '40px', fill: '#000' });
+    this.add.text(config.width/2.17, config.height/1.8, 'Cloé', { fontSize: '40px', fill: '#000' });
+    this.add.text(config.width/2.3, config.height/1.6, 'Baptiste', { fontSize: '40px', fill: '#000' });
+    this.add.text(config.width/2.3, config.height/1.4, 'Valentin', { fontSize: '40px', fill: '#000' });
 
-    this.add.text(config.width/5, config.height/1.2, 'Musique : Penteract - Are You A Ninja', { fontSize: '40px', fill: '#000' });
+    this.add.text(config.width/4, config.height/1.25, 'Musique : Penteract - Are You A Ninja', { fontSize: '40px', fill: '#000' });
 
     this.backButton = this.physics.add.sprite(config.width/2, config.height/1.1, 'backButton');
     this.backButton.setInteractive();

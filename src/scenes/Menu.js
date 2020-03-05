@@ -18,30 +18,29 @@ export class Menu extends Phaser.Scene {
     this.resumeButton.setInteractive();
 
     this.resumeButton.on('pointerdown', function() {
-      
-    	this.scene.stop();
-      this.scene.resume('Play');
+		this.scene.stop();
+		this.scene.resume('Play');
 	}, this);
 
     // Sound
 
-		if(theme.getStatusMusic(this))
-    		this.sound = this.physics.add.sprite(config.width/1.2, config.height/4, 'soundOff');
-    	else
-    		this.sound = this.physics.add.sprite(config.width/1.2, config.height/4, 'soundOn');
-    	this.sound.setInteractive();
+	if(theme.getStatusMusic(this))
+		this.sound = this.physics.add.sprite(config.width/1.2, config.height/4, 'soundOff');
+	else
+		this.sound = this.physics.add.sprite(config.width/1.2, config.height/4, 'soundOn');
+	this.sound.setInteractive();
 
-		this.sound.on('pointerdown', function() {
-      		if(theme.getStatusMusic(this)){
-      			theme.musicOff(this);
-      			this.sound = this.physics.add.sprite(config.width/1.2, config.height/4, 'soundOn');
+	this.sound.on('pointerdown', function() {
+		if(theme.getStatusMusic(this)){
+			theme.musicOff(this);
+			this.sound = this.physics.add.sprite(config.width/1.2, config.height/4, 'soundOn');
 
-      		}else{
-      			theme.musicOn(this);
-      			this.sound = this.physics.add.sprite(config.width/1.2, config.height/4, 'soundOff');
-      		}
+		}else{
+			theme.musicOn(this);
+			this.sound = this.physics.add.sprite(config.width/1.2, config.height/4, 'soundOff');
+		}
 
-  		}, this);
+		}, this);
     
   }
 }
