@@ -14,7 +14,7 @@ Installation steps to set this template up and running.
 ### Install
 #### Clone repo (and specify folder name)
 ```
-git clone https://github.com/PeeJeeDR/phaser-3-webpack-cordova.git PROJECT_NAME
+https://github.com/hagneva1/GottaGoFast
 ```
 
 #### Navigate in folder
