@@ -6,6 +6,7 @@ export default {
         game.player = game.physics.add.sprite(gameOptions.playerStartPosition, config.height / 2, "dude");
         game.player.setGravityY(gameOptions.playerGravity);
         game.player.setVelocityX(gameOptions.platformStartSpeed)
+        game.player.setSize(game.player.body.width * 0.8, game.player.height * 0.7, true)
         game.player.setScale(3);
         this.jumpTimer = 0;
         this.playerJumps = 0;

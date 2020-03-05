@@ -5,7 +5,7 @@ export default {
     platformSizeRange: [50, 250],
     playerGravity: 900,
     jumpForce: 250,
-    playerStartPosition: 200,
+    playerStartPosition: 400,
     jumps: 2,
     probaPopEnemie: 0.2
 }
