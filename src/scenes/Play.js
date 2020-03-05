@@ -128,7 +128,9 @@ export class Play extends Phaser.Scene {
     }
     //GameOver
     if (this.gameover == true) {
-      localStorage.setItem("bestScore", score.score);
+      if (score.score > score.bestScore) {
+        localStorage.setItem("bestScore", score.score);
+      }
       theme.musicStop();
       this.scene.stop();
       this.scene.start('TitleScreen');
