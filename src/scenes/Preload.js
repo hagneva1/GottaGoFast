@@ -10,6 +10,8 @@ import start from "../assets/start.png";
 import logoTitle from "../assets/logoTitle.png";
 import soundOn from "../assets/soundOn.png";
 import soundOff from "../assets/soundOff.png";
+import mp3theme from "../assets/music/theme.mp3"
+import oggTheme from "../assets/music/theme.ogg"
 import theme from "../entity/audio"
 
 
@@ -33,8 +35,8 @@ export class Preload extends Phaser.Scene {
     this.load.spritesheet('enemies', enemies, {frameWidth: 267, frameHeight: 249});
 
     this.load.audio('theme', [
-        '../assets/music/theme.ogg',
-        '../assets/music/theme.mp3'
+        mp3theme,
+        oggTheme
     ]);
 
   }
